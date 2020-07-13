@@ -12,8 +12,9 @@ Alipay.sign = (object, privateKey) => {
   }
 
   // Remove sign field
-  delete object.sign;
-
+  if (object.sign) {
+      delete object.sign;
+  }
   // Remove empty field
   Object.keys(object).forEach((key) => {
     if (String(object[key]).length === 0) {
